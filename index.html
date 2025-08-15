@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ETH5000 Token</title>
+
+    <!-- Meta Description -->
+    <meta
+      name="description"
+      content="Do you believe that ETH price will pump into $5000? Discover the token and join the revolution."
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="ETH5000 Token" />
+    <meta
+      property="og:description"
+      content="Do you believe that ETH price will pump into $5000? Discover the token and join the revolution."
+    />
+    <meta property="og:image" content="/assets/logo.png" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ETH5000 Token" />
+    <meta
+      name="twitter:description"
+      content="Do you believe that ETH price will pump into $5000? Discover the token and join the revolution."
+    />
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/logo.png" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+        font-family: "Arial", sans-serif;
+        background: #000;
+        color: #fff;
+      }
+
+      body {
+        background: url("1.png") no-repeat center center fixed;
+        background-size: cover;
+        overflow: hidden;
+      }
+
+      .overlay {
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.6);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-content {
+        text-align: center;
+        transition: opacity 0.8s ease;
+      }
+
+      .hero-content.hide {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 30px;
+        text-shadow: 2px 2px 5px #000;
+      }
+
+      .buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+      }
+
+      .btn {
+        padding: 15px 30px;
+        background: linear-gradient(to bottom, #f0f0f0, #a9a9a9);
+        border: none;
+        border-radius: 12px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 6px 6px 14px rgba(0, 0, 0, 0.5);
+      }
+
+      .token-info {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        background: rgba(0, 0, 0, 0.85);
+        padding: 30px;
+        border-radius: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+        max-width: 400px;
+        gap: 15px;
+        opacity: 0;
+        transition: transform 1s ease, opacity 1s ease;
+        box-shadow: 0 0 40px rgba(255, 255, 255, 0.15);
+        z-index: 2;
+      }
+
+      .token-info.show {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+      }
+
+      .token-logo {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background: #fff;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .token-logo img {
+        width: 100%;
+        height: auto;
+        border-radius: 50%;
+      }
+
+      .token-name {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      .ca {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 10px 15px;
+        border-radius: 10px;
+        font-size: 0.95rem;
+        color: #eee;
+        border: 1px solid #555;
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.2s ease;
+        user-select: none;
+        text-align: center;
+      }
+
+      .ca:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: scale(1.02);
+        color: #00ffcc;
+      }
+
+      .socials {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .socials a {
+        text-decoration: none;
+        padding: 10px 20px;
+        background: #1e1e1e;
+        border-radius: 8px;
+        color: #fff;
+        border: 1px solid #555;
+        transition: 0.3s;
+        font-size: 0.9rem;
+      }
+
+      .socials a:hover {
+        background: #444;
+      }
+
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 2rem;
+        }
+
+        .btn {
+          padding: 12px 20px;
+          font-size: 1rem;
+        }
+      }
+      @media (max-width: 768px) {
+        #popupVideo {
+          width: 100vw;
+          height: auto;
+          object-fit: cover;
+        }
+
+        #videoModal {
+          padding: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="overlay">
+      <!-- Initial Question -->
+      <div class="hero-content" id="heroContent">
+        <h1>Do you believe that ETH price will pump into $5000?</h1>
+        <div class="buttons">
+          <button class="btn" onclick="revealToken()">YES</button>
+          <button class="btn" onclick="playVideo()">NO</button>
+        </div>
+      </div>
+
+      <!-- Token Info -->
+      <div class="token-info" id="tokenInfo">
+        <iframe src="https://eth5000-inner.vercel.app" style="width: 100vw;height: 100vh"></iframe>
+      </div>
+    </div>
+    <!-- Video Modal -->
+    <div
+      id="videoModal"
+      style="
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        z-index: 9999;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      <video id="popupVideo" width="80%" controls>
+        <source src="ss.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <button
+        onclick="closeVideo()"
+        style="
+          position: absolute;
+          top: 20px;
+          right: 20px;
+          font-size: 2rem;
+          background: none;
+          color: #fff;
+          border: none;
+          cursor: pointer;
+        "
+      >
+        &times;
+      </button>
+    </div>
+
+    <script>
+      function revealToken() {
+        document.getElementById("heroContent").classList.add("hide");
+        document.getElementById("tokenInfo").classList.add("show");
+      }
+
+      function copyToClipboard() {
+        const caText = document.getElementById("caText").textContent;
+        navigator.clipboard.writeText(caText).then(() => {
+          const copiedMsg = document.getElementById("copied");
+          copiedMsg.style.display = "inline";
+          setTimeout(() => {
+            copiedMsg.style.display = "none";
+          }, 2000);
+        });
+      }
+
+      function playVideo() {
+        document.getElementById("heroContent").classList.add("hide");
+        const modal = document.getElementById("videoModal");
+        const video = document.getElementById("popupVideo");
+
+        modal.style.display = "flex";
+
+        // Play the video manually when modal is shown
+        video.play();
+      }
+
+      function closeVideo() {
+        const video = document.getElementById("popupVideo");
+        video.pause();
+        video.currentTime = 0;
+
+        // Redirect to the homepage
+        window.location.href = "index.html";
+      }
+    </script>
+  </body>
+</html>
